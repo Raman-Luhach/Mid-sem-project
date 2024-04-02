@@ -507,26 +507,15 @@
             "icon_remove":"https://d3dyfaf3iutrxo.cloudfront.net/general/upload/05c800be8f0b4d569e908f1aa949feed.svg"
         }
 
-
-
         const copyOfCard = document.querySelector('.start');
         const tagNode = document.querySelector('.tag').cloneNode(false);
-
-
-
-
-
-
+        
         function updateJobTags(){
             jobsData.jobs = jobsData.jobs.map(it => {
                 it["tags"] = [it.role, it.level, ...it.languages, ...it.tools];
                 return it;
             });
         }
-
-
-
-
 
         function updateJobCard(Jdata, copyOfNode){
             let childrenOfCopy = copyOfNode.children;
@@ -577,23 +566,11 @@
             return copyOfNode;
         } 
 
-
-
-
-
-
-
-
         function removeChildrens(container){
             while(container.firstElementChild){
                 container.removeChild(container.firstElementChild);
             }
         }
-
-
-
-
-
 
         function generateJobCards(JdataArr){
             const container = document.querySelector('.job-card');
@@ -605,13 +582,6 @@
             }
             eventlis();
         }
-
-
-
-
-
-
-
 
         let filteredArr = [];
         function filterJobsByTags(filteredArr){
@@ -626,31 +596,15 @@
         }
 
 
-
-
-
-
-
         function downContainer(){
             const container = document.querySelector(".job-card");
             container.style.marginTop = "2vh";
         }
 
-
-
-
-
-
-
-
         function upContainer(){
             const container = document.querySelector(".job-card");
             container.style.marginTop = "0";
         }
-
-
-
-
 
 
         function eventlistenersSearchbar(node){
@@ -678,13 +632,6 @@
         })
         }
 
-
-
-
-
-
-
-
         function generateSearchBar(filteredArr){
             downContainer();
 
@@ -695,7 +642,6 @@
             let clearBtn = document.createElement('button');
             clearBtn.id = "clearBtn";
             clearBtn.innerText = "Clear";
-
 
             for(let it of filteredArr){
                 let innerDiv = document.createElement('div');
@@ -713,21 +659,11 @@
                 div.append(innerDiv);
             }
 
-
             div.append(clearBtn);
             eventlistenersSearchbar(div);
             document.querySelector('body').insertBefore(div, document.querySelector('.jobs'));
 
         }
-
-
-
-
-
-
-
-
-
 
 
         function eventlis(){
@@ -742,15 +678,6 @@
                 });
             });
         }
-
-
-
-
-
-
-
-
-
         updateJobTags();
         generateJobCards(jobsData.jobs);
     </script>
