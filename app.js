@@ -154,17 +154,9 @@ const jobsData = {
     "icon_remove":"https://d3dyfaf3iutrxo.cloudfront.net/general/upload/05c800be8f0b4d569e908f1aa949feed.svg"
 }
 
-
-
-
 // import jobsData from "./data.json" assert { type: 'json' };
 const orgNode = document.querySelector('.start');
 const tagNode = document.querySelector('.tag').cloneNode(false);
-
-
-
-
-
 
 function updateJobTags(){
   jobsData.jobs = jobsData.jobs.map(it => {
@@ -172,10 +164,6 @@ function updateJobTags(){
     return it;
   });
 }
-
-
-
-
 
 function updateJobCard(Jdata, cpy){
   let temp = cpy.children;
@@ -200,7 +188,6 @@ function updateJobCard(Jdata, cpy){
     cpy.id = "";
   }
 
-
   temp[1].children[1].innerText = Jdata.position;
   temp[1].children[2].children[0].children[0].innerText = Jdata.postedAt;
   temp[1].children[2].children[0].children[1].innerText = Jdata.contract;
@@ -215,7 +202,6 @@ function updateJobCard(Jdata, cpy){
     i++;
   }
 
-
   let k = 0;
   while(i < 5){
     buttons[i].style.display = "block";
@@ -226,23 +212,11 @@ function updateJobCard(Jdata, cpy){
   return cpy;
 } 
 
-
-
-
-
-
-
-
 function removeChildrens(container){
   while(container.firstElementChild){
     container.removeChild(container.firstElementChild);
   }
 }
-
-
-
-
-
 
 function generateJobCards(JdataArr){
   const container = document.querySelector('.job-card');
@@ -254,13 +228,6 @@ function generateJobCards(JdataArr){
   }
   eventlis();
 }
-
-
-
-
-
-
-
 
 let filtered_arr = [];
 function filterJobsByTags(filtered_arr){
@@ -274,33 +241,15 @@ function filterJobsByTags(filtered_arr){
   generateJobCards(filtered_Jdata);
 }
 
-
-
-
-
-
-
 function downContainer(){
   const container = document.querySelector(".job-card");
   container.style.marginTop = "2vh";
 }
 
-
-
-
-
-
-
-
 function upContainer(){
   const container = document.querySelector(".job-card");
   container.style.marginTop = "0";
 }
-
-
-
-
-
 
 function eventlistenersSearchbar(node){
   let clearBtn = node.lastElementChild;
@@ -328,12 +277,6 @@ function eventlistenersSearchbar(node){
 }
 
 
-
-
-
-
-
-
 function generateSearchBar(filtered_arr){
   downContainer();
 
@@ -344,7 +287,6 @@ function generateSearchBar(filtered_arr){
   let clearBtn = document.createElement('button');
   clearBtn.id = "clearBtn";
   clearBtn.innerText = "Clear";
-
 
   for(let it of filtered_arr){
     let innerDiv = document.createElement('div');
@@ -361,23 +303,12 @@ function generateSearchBar(filtered_arr){
     innerDiv.append(btn);
     div.append(innerDiv);
   }
-
-
+    
   div.append(clearBtn);
   eventlistenersSearchbar(div);
   document.querySelector('body').insertBefore(div, document.querySelector('.jobs'));
 
 }
-
-
-
-
-
-
-
-
-
-
 
 function eventlis(){
   const tags = Array.from(document.querySelectorAll('.tag'));
@@ -391,14 +322,6 @@ function eventlis(){
     });
   });
 }
-
-
-
-
-
-
-
-
 
 updateJobTags();
 generateJobCards(jobsData.jobs);
